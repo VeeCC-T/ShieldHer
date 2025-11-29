@@ -4,7 +4,7 @@
 
 ## 🌐 Live Demo
 
-**Deployed Application:** [Coming Soon - Deploy Link Here]
+**Deployed Application:** https://shieldher-61ix.onrender.com
 
 > Note: The application will be deployed on Render.com (free tier). Initial load may take 30-60 seconds as the service spins up.
 
