@@ -22,7 +22,7 @@
 ## 📊 Project Resources
 
 - **Pitch Deck:** [View Presentation](https://www.popai.pro/ppt-share?shareKey=4ab88024520f0e454dcc43d305187d1e79dec31bb8bdc720d52a1f7be4c8d343&utm_source=presentationsharepage)
-- **Live Demo:** [Coming Soon - Deploy Link Here]
+- **Live Demo:** [https://shieldher-61ix.onrender.com ]
 - **Documentation:** [Deployment Guide](./DEPLOYMENT.md)
 
 ## 🌟 Mission
