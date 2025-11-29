@@ -28,6 +28,7 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./backend:/app
+      - /app/__pycache__
     ports:
       - "8000:8000"
     environment:
@@ -35,9 +36,27 @@ services:
       - DATABASE_URL=postgresql://shieldher_user:shieldher_pass@db:5432/shieldher
       - SECRET_KEY=dev-secret-key-change-in-production
       - ALLOWED_HOSTS=localhost,127.0.0.1
+      - PYTHONUNBUFFERED=1
+      - WATCHFILES_FORCE_POLLING=true
     depends_on:
       db:
         condition: service_healthy
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /app
+          ignore:
+            - __pycache__/
+            - "*.pyc"
+            - "*.pyo"
+            - "*.pyd"
+            - .git/
+            - staticfiles/
+            - media/
+            - logs/
+        - action: rebuild
+          path: ./backend/requirements
 
   # React Frontend
   frontend:
@@ -53,8 +72,22 @@ services:
       - "5173:5173"
     environment:
       - VITE_API_URL=http://localhost:8000
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    stdin_open: true
+    tty: true
     depends_on:
       - backend
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend/src
+          target: /app/src
+        - action: sync
+          path: ./frontend/public
+          target: /app/public
+        - action: rebuild
+          path: ./frontend/package.json
 
 volumes:
   postgres_data:

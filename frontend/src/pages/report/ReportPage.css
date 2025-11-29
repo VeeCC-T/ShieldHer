@@ -32,3 +32,57 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+/* Entry section */
+.report-page__entry { display: grid; gap: 1rem; }
+.report-page__entry-actions { display:flex; gap: .75rem; justify-content: center; }
+.report-page__primary-btn { background: #ef3a8a; color: white; border: none; border-radius: 10px; padding: .75rem 1.25rem; font-weight: 600; cursor: pointer; }
+.report-page__secondary-btn { background: transparent; color: #ef3a8a; border: 2px solid #ef3a8a; border-radius: 10px; padding: .65rem 1.1rem; font-weight: 600; cursor: pointer; }
+.report-page__primary-btn:hover { filter: brightness(1.05); }
+.report-page__secondary-btn:hover { background: #ffe4f1; }
+
+/* Footer below form */
+.report-page__form-footer { margin-top: 1rem; display:flex; justify-content: flex-start; }
+
+/* Minimal buttons */
+.clear-history-btn { background: transparent; border: none; color: #6B7280; text-decoration: underline; cursor: pointer; padding: .25rem .5rem; }
+.calm-mode-toggle { background: #fff; border: 1px solid #E5E7EB; border-radius: 999px; padding: .4rem .8rem; color: #374151; cursor: pointer; }
+.calm-mode-toggle[aria-pressed="true"] { background: #F3F4F6; }
+
+/* Card tweaks for added components */
+.privacy-reminder-card__title,
+.safety-tips-card__title,
+.threat-assessment-card__title,
+.emergency-help-card__title { margin: 0 0 .5rem 0; font-size: 1.125rem; font-weight: 700; }
+
+.privacy-reminder-card__list,
+.safety-tips-card__list,
+.emergency-help-card__channels { margin: 0; padding-left: 1rem; color: #4B5563; }
+
+.privacy-reminder-card__note,
+.safety-tips-card__foot,
+.emergency-help-card__note { color: #6B7280; font-size: .9rem; }
+
+.threat-assessment-card__intro { color: #6B7280; font-size: .95rem; margin: 0 0 .5rem 0; }
+.threat-assessment-card__list { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.threat-assessment-card__item { display:flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.threat-assessment-card__choices { display:flex; gap: .5rem; }
+.threat-assessment-card__choices button { background: #fff; border: 1px solid #E5E7EB; border-radius: 8px; padding: .4rem .7rem; cursor: pointer; }
+.threat-assessment-card__choices button.active { background: #ef3a8a; color: white; border-color: #ef3a8a; }
+
+/* Review screen */
+.report-review-card__checklist ul { margin: 0; padding-left: 1rem; }
+.report-review-card__preview pre { white-space: pre-wrap; background: #F3F4F6; padding: .75rem; border-radius: 8px; }
+.report-review-card__evidence ul { margin: 0; padding-left: 1rem; }
+.report-review-card__actions { display:flex; gap: .5rem; justify-content: flex-end; margin-top: 1rem; }
+
+/* Success screen */
+.submission-success-card__options { display:flex; gap: .5rem; flex-wrap: wrap; }
+.submission-success-card__affirm { color: #374151; font-weight: 600; }
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .report-page__title { font-size: 1.5rem; }
+  .report-page__description { font-size: 1rem; }
+  .report-page__primary-btn, .report-page__secondary-btn { width: 100%; }
+}
