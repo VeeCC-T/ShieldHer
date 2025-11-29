@@ -17,6 +17,7 @@ Welcome, Person D! You'll be implementing the Emergency Help and Support Hub for
 ## Your Spec Files
 
 All your requirements, design, and tasks are documented in:
+
 - `.kiro/specs/emergency-support-hub/requirements.md` - User stories and acceptance criteria
 - `.kiro/specs/emergency-support-hub/design.md` - Architecture, components, and correctness properties
 - `.kiro/specs/emergency-support-hub/tasks.md` - Step-by-step implementation plan
@@ -24,13 +25,17 @@ All your requirements, design, and tasks are documented in:
 ## Getting Started
 
 ### 1. Review the Spec
+
 Read through the requirements and design documents to understand what you're building.
 
 ### 2. Start with Task 1
+
 Open `.kiro/specs/emergency-support-hub/tasks.md` and click "Start task" next to task 1.1 to begin implementation.
 
 ### 3. Follow the Task Order
+
 The tasks are designed to build incrementally:
+
 1. Backend resources app (helplines, resources)
 2. Backend donations app
 3. Mock chatbot API
@@ -44,6 +49,7 @@ The tasks are designed to build incrementally:
 ### 4. Use Existing Infrastructure
 
 **Design Tokens** (already created by Person A):
+
 ```javascript
 // frontend/src/styles/design-tokens.js
 export const colors = {
@@ -54,11 +60,13 @@ export const colors = {
 ```
 
 **Common Components** (already created):
+
 - `Button` - frontend/src/components/common/Button/
 - `Card` - frontend/src/components/common/Card/
 - `Input` - frontend/src/components/common/Input/
 
 **API Utility** (already created):
+
 ```javascript
 // frontend/src/utils/api.js
 import { apiRequest } from '../utils/api';
@@ -67,6 +75,7 @@ const helplines = await apiRequest('/api/helplines/');
 ```
 
 **Backend Core Utilities** (already created):
+
 - PII detection: `backend/apps/core/utils.py`
 - Permissions: `backend/apps/core/permissions.py`
 - Logging: `backend/apps/core/logging.py`
@@ -78,11 +87,13 @@ const helplines = await apiRequest('/api/helplines/');
 You'll be working with two Django apps:
 
 **resources app** (backend/apps/resources/):
+
 - Helpline model and API
 - Resource model and API
 - Mock chatbot endpoint
 
 **donations app** (backend/apps/donations/):
+
 - Donation model and API
 - Mock payment processor
 
@@ -91,18 +102,21 @@ You'll be working with two Django apps:
 You'll create:
 
 **Pages** (frontend/src/pages/emergency/):
+
 - Helplines.jsx
 - ChatSupport.jsx
 - Donations.jsx
 - Resources.jsx (if not already in resources folder)
 
 **Components** (frontend/src/components/emergency/):
+
 - HelplineCard.jsx
 - ChatbotWindow.jsx
 - DonationForm.jsx
 - ResourceCard.jsx
 
 **Hooks** (frontend/src/hooks/):
+
 - useHelplines.js
 - useResources.js
 - useDonations.js
@@ -119,6 +133,7 @@ You'll create:
 ### Mock Implementations
 
 **Chatbot Pattern Matching**:
+
 ```python
 CHATBOT_RESPONSES = {
     'crisis': "If you're in immediate danger, call 911 or 1-800-799-7233",
@@ -129,6 +144,7 @@ CHATBOT_RESPONSES = {
 ```
 
 **Mock Payment Processor**:
+
 ```python
 def process_payment(amount, payment_method):
     return {
@@ -143,6 +159,7 @@ def process_payment(amount, payment_method):
 After creating models, run migrations:
 
 **Windows**:
+
 ```cmd
 cd backend
 python manage.py makemigrations resources
@@ -151,6 +168,7 @@ python manage.py migrate
 ```
 
 **Linux/Mac**:
+
 ```bash
 cd backend
 ./scripts/create_migrations.sh
@@ -159,6 +177,7 @@ cd backend
 ## Testing Your Work
 
 ### Backend Testing
+
 ```cmd
 cd backend
 pytest apps/resources/tests/
@@ -166,19 +185,22 @@ pytest apps/donations/tests/
 ```
 
 ### Frontend Testing
+
 ```cmd
 cd frontend
 npm test
 ```
 
 ### Manual Testing
+
 1. Start backend: `cd backend && python manage.py runserver`
 2. Start frontend: `cd frontend && npm start`
-3. Visit http://localhost:3000/emergency/helplines
+3. Visit <http://localhost:3000/emergency/helplines>
 
 ## Design Guidelines
 
 ### Colors (from design tokens)
+
 - Primary: Purple (#8B5CF6) - main actions
 - Secondary: Pink (#EC4899) - accents
 - Success: Green (#10B981) - confirmations
@@ -186,17 +208,20 @@ npm test
 - Warning: Amber (#F59E0B) - cautions
 
 ### Typography
+
 - Headings: 24px, 20px, 18px (font-semibold)
 - Body: 16px minimum (font-normal)
 - Small: 14px (font-normal)
 
 ### Spacing
+
 - Touch targets: 44x44px minimum
 - Form field spacing: 16px (space-y-4)
 - Card padding: 24px (p-6)
 - Section spacing: 32px (space-y-8)
 
 ### Accessibility Checklist
+
 - [ ] All interactive elements have 44x44px touch targets
 - [ ] All images have alt text
 - [ ] All form inputs have labels
@@ -209,6 +234,7 @@ npm test
 ## Common Patterns
 
 ### Creating a Django Model
+
 ```python
 from django.db import models
 from apps.core.models import TimeStampedModel
@@ -226,6 +252,7 @@ class Helpline(TimeStampedModel):
 ```
 
 ### Creating a DRF ViewSet
+
 ```python
 from rest_framework import viewsets, filters
 from apps.core.permissions import IsAdminOrReadOnly
@@ -239,6 +266,7 @@ class HelplineViewSet(viewsets.ModelViewSet):
 ```
 
 ### Creating a React Hook
+
 ```javascript
 import { useState, useEffect } from 'react';
 import { apiRequest } from '../utils/api';
@@ -268,6 +296,7 @@ export const useHelplines = (searchQuery = '') => {
 ```
 
 ### Creating a React Component
+
 ```javascript
 import React from 'react';
 import { Card } from '../common/Card';
@@ -299,7 +328,9 @@ export const HelplineCard = ({ name, phoneNumber, description, availability }) =
 ## Troubleshooting
 
 ### Import Errors
+
 Make sure Django apps are registered in `backend/config/settings/base.py`:
+
 ```python
 INSTALLED_APPS = [
     # ...
@@ -309,10 +340,13 @@ INSTALLED_APPS = [
 ```
 
 ### CORS Issues
+
 CORS is already configured in settings for localhost:3000
 
 ### Database Issues
+
 Reset database if needed:
+
 ```cmd
 cd backend
 python manage.py flush
@@ -331,6 +365,7 @@ python manage.py createsuperuser
 ## Questions?
 
 If you encounter issues:
+
 1. Check the design document for architecture details
 2. Review existing code from Person A, B, and C for patterns
 3. Refer to Django and React documentation
@@ -339,6 +374,7 @@ If you encounter issues:
 ## Success Criteria
 
 Your implementation is complete when:
+
 - [ ] All non-optional tasks are completed
 - [ ] Backend APIs return correct data
 - [ ] Frontend pages render and function correctly

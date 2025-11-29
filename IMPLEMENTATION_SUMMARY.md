@@ -15,6 +15,7 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 ### ✅ Task 1: Project Structure and Configuration
 
 **Files Created:**
+
 - `.gitignore` - Comprehensive ignore rules for Python, Node, Docker
 - `backend/.env.example` - Backend environment variable template
 - `frontend/.env.example` - Frontend environment variable template
@@ -22,6 +23,7 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 - `TASK_CHECKLIST.md` - Template for team member handoffs
 
 **Key Features:**
+
 - Clean separation of frontend and backend
 - Environment-based configuration
 - Comprehensive documentation
@@ -31,6 +33,7 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 ### ✅ Task 2: Django Backend Foundation
 
 **Files Created:**
+
 - `backend/config/settings/base.py` - Base Django settings
 - `backend/config/settings/development.py` - Development settings
 - `backend/config/settings/production.py` - Production settings
@@ -43,6 +46,7 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 - `backend/pytest.ini` - Test configuration
 
 **Key Features:**
+
 - Django 4.2 + Django REST Framework 3.14
 - PostgreSQL database configuration
 - JWT authentication (djangorestframework-simplejwt)
@@ -54,6 +58,7 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 - Rate limiting configured
 
 **Dependencies Installed:**
+
 - Django, DRF, PostgreSQL, JWT, CORS
 - Cryptography for encryption
 - pytest, hypothesis for testing
@@ -64,6 +69,7 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 ### ✅ Task 3: Core App with Base Models and Utilities
 
 **Files Created:**
+
 - `backend/apps/core/models.py` - TimeStampedModel, AuditLog
 - `backend/apps/core/utils.py` - Encryption utilities, confirmation code generator
 - `backend/apps/core/views.py` - Health check endpoint
@@ -74,6 +80,7 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 - `backend/apps/core/admin.py` - AuditLog admin interface
 
 **Key Features:**
+
 - **TimeStampedModel**: Abstract base with created_at/updated_at
 - **AuditLog**: Tracks all admin actions for accountability
 - **Encryption**: Fernet-based field-level encryption
@@ -87,6 +94,7 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 ### ✅ Task 4: Authentication System
 
 **Files Created:**
+
 - `backend/apps/authentication/models.py` - AdminUser model
 - `backend/apps/authentication/serializers.py` - JWT serializers
 - `backend/apps/authentication/views.py` - Login/refresh views
@@ -94,6 +102,7 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 - `backend/apps/authentication/admin.py` - User admin interface
 
 **Key Features:**
+
 - **AdminUser Model**: Custom user with role field (admin/moderator)
 - **JWT Authentication**: Access + refresh tokens
 - **Generic Errors**: Prevents user enumeration
@@ -101,6 +110,7 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 - **Admin Interface**: Manage admin users
 
 **API Endpoints:**
+
 - `POST /api/auth/login/` - Admin login
 - `POST /api/auth/refresh/` - Refresh access token
 
@@ -109,6 +119,7 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 ### ✅ Task 5: Database Models for Core Features
 
 **Files Created:**
+
 - `backend/apps/lessons/models.py` - Lesson model
 - `backend/apps/reports/models.py` - Report model (ZERO PII)
 - `backend/apps/resources/models.py` - Resource model
@@ -119,12 +130,14 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 **Key Features:**
 
 #### Lesson Model
+
 - Fields: title, description, category, difficulty, duration, content (JSON), quiz (JSON)
 - Categories: privacy, safety, security, awareness
 - Difficulty levels: beginner, intermediate, advanced
 - Published flag for content management
 
 #### Report Model (Privacy-First) 🔒
+
 - **ZERO PII**: No names, emails, phones, IPs, user IDs
 - Fields: confirmation_code, incident_type, encrypted description, timestamp
 - Auto-generates confirmation codes (SH-2025-XXXXXX)
@@ -133,11 +146,13 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 - Evidence links (URLs only, no uploads)
 
 #### Resource Model
+
 - Fields: type, name, description, contact, website, available_24_7, languages (JSON), country
 - Types: hotline, legal, counseling, shelter, online
 - Multi-language support
 
 #### Donation Model (Privacy-First) 🔒
+
 - **ZERO donor PII**: Completely anonymous
 - Fields: confirmation_code, amount, currency, payment_processor_id, status
 - Auto-generates confirmation codes (DON-2025-XXXXXX)
@@ -147,9 +162,11 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 ### ✅ Task 6: PII Detection and Redaction System
 
 **Files Created:**
+
 - `backend/apps/reports/utils.py` - PII detection and redaction
 
 **Key Features:**
+
 - **PII Patterns**: Detects emails, phones, SSNs, credit cards, names
 - **detect_pii()**: Scans text for PII patterns
 - **redact_pii()**: Replaces PII with [REDACTED]
@@ -158,6 +175,7 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 - **Logging**: Logs PII detection without revealing content
 
 **PII Types Detected:**
+
 - Email addresses
 - Phone numbers
 - Social Security Numbers
@@ -169,9 +187,13 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 ## 📊 Statistics
 
 ### Files Created: 50+
+
 ### Lines of Code: ~3,500+
+
 ### Models: 6 (AdminUser, Lesson, Report, Resource, Donation, AuditLog)
+
 ### API Endpoints: 3 (health, login, refresh)
+
 ### Apps: 6 (core, authentication, lessons, reports, resources, donations)
 
 ---
@@ -179,6 +201,7 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 ## 🔒 Privacy & Security Features
 
 ### Privacy-First Design
+
 ✅ Anonymous users - no accounts required  
 ✅ Zero PII in Report model  
 ✅ Zero PII in Donation model  
@@ -188,6 +211,7 @@ This document summarizes the complete ShieldHer platform foundation that has bee
 ✅ Confirmation codes (non-identifying)  
 
 ### Security Features
+
 ✅ JWT authentication for admins  
 ✅ Field-level encryption (Fernet/AES-256)  
 ✅ Safe error messages (no information disclosure)  
@@ -260,6 +284,7 @@ curl -X POST http://localhost:8000/api/auth/login/ \
 ## 📝 Next Steps for Contributors
 
 ### Person B: Lessons Feature
+
 - Create serializers for Lesson model
 - Create viewsets for CRUD operations
 - Create URLs for `/api/lessons/`
@@ -267,6 +292,7 @@ curl -X POST http://localhost:8000/api/auth/login/ \
 - Add lesson progress tracking
 
 ### Person C: Resources Feature
+
 - Create serializers for Resource model
 - Create viewsets for CRUD operations
 - Create URLs for `/api/resources/`
@@ -274,6 +300,7 @@ curl -X POST http://localhost:8000/api/auth/login/ \
 - Add filtering by type and country
 
 ### Person D: AI Chat Feature
+
 - Create AI chat endpoint
 - Implement structured guidance responses
 - Add follow-up options
@@ -281,6 +308,7 @@ curl -X POST http://localhost:8000/api/auth/login/ \
 - Integrate with AI model (optional)
 
 ### Person E: Donations Feature
+
 - Create serializers for Donation model
 - Create viewsets for donation creation
 - Create URLs for `/api/donations/`
@@ -288,6 +316,7 @@ curl -X POST http://localhost:8000/api/auth/login/ \
 - Integrate payment processor
 
 ### Person F: Reports Feature
+
 - Create serializers for Report model
 - Create viewsets with PII validation
 - Create URLs for `/api/reports/`
@@ -325,6 +354,7 @@ Property-based tests are marked as optional in the task list. To implement them:
 ## 📚 Documentation
 
 ### Available Documentation
+
 - `README.md` - Project overview and setup
 - `TASK_CHECKLIST.md` - Handoff template
 - `.kiro/specs/shieldher-foundation/requirements.md` - Requirements
@@ -332,15 +362,18 @@ Property-based tests are marked as optional in the task list. To implement them:
 - `.kiro/specs/shieldher-foundation/tasks.md` - Task list
 
 ### API Documentation
+
 Once running, visit:
-- Admin: http://localhost:8000/admin/
-- API Schema: http://localhost:8000/api/schema/ (to be configured)
+
+- Admin: <http://localhost:8000/admin/>
+- API Schema: <http://localhost:8000/api/schema/> (to be configured)
 
 ---
 
 ## ⚠️ Important Notes
 
 ### Privacy Rules (MUST FOLLOW)
+
 1. **Never** collect PII for anonymous users
 2. **Always** use PII detection for user-submitted text
 3. **Never** log IP addresses for public users
@@ -348,6 +381,7 @@ Once running, visit:
 5. **Never** set identifying cookies for anonymous users
 
 ### Security Rules (MUST FOLLOW)
+
 1. **Always** use environment variables for secrets
 2. **Never** hardcode passwords or API keys
 3. **Always** validate and sanitize user input
@@ -355,6 +389,7 @@ Once running, visit:
 5. **Always** log admin actions for audit trail
 
 ### Code Quality Rules
+
 1. **Always** add help_text to model fields
 2. **Always** inherit from TimeStampedModel
 3. **Always** write tests for new features

@@ -11,13 +11,13 @@ This guide will help you deploy the complete ShieldHer platform (Frontend + Back
 ## 📋 Prerequisites
 
 1. GitHub account with ShieldHer repository pushed
-2. Render.com account (sign up at https://render.com - it's free!)
+2. Render.com account (sign up at <https://render.com> - it's free!)
 
 ## 🚀 Deployment Steps
 
 ### Step 1: Sign Up for Render.com
 
-1. Go to https://render.com
+1. Go to <https://render.com>
 2. Click "Get Started for Free"
 3. Sign up with your GitHub account (recommended)
 4. Authorize Render to access your repositories
@@ -34,7 +34,7 @@ This guide will help you deploy the complete ShieldHer platform (Frontend + Back
    - **Plan:** **Free**
 3. Click **"Create Database"**
 4. Wait for database to be created (takes 1-2 minutes)
-5. **IMPORTANT:** Copy the **Internal Database URL** 
+5. **IMPORTANT:** Copy the **Internal Database URL**
    - It looks like: `postgresql://shieldher_user:password@dpg-xxxxx/shieldher`
    - Save this - you'll need it in Step 3!
 
@@ -53,7 +53,7 @@ This guide will help you deploy the complete ShieldHer platform (Frontend + Back
 
 4. Click **"Advanced"** and add these **Environment Variables**:
 
-   ```
+   ```sh
    DJANGO_SETTINGS_MODULE = config.settings.production
    SECRET_KEY = <click "Generate" button>
    DATABASE_URL = <paste the Internal Database URL from Step 2>
@@ -75,10 +75,10 @@ After backend deployment completes:
 2. Click **"Shell"** tab (on the left sidebar)
 3. Run these commands one by one:
 
-   ```bash
+```bash
    python manage.py migrate
    python manage.py createsuperuser
-   ```
+```
 
 4. Follow prompts to create admin user:
    - Username: (your choice)
@@ -97,11 +97,12 @@ After backend deployment completes:
    - **Publish Directory:** `frontend/dist`
 
 4. Add **Environment Variable**:
-   ```
+
+```sh
    VITE_API_URL = https://shieldher-backend.onrender.com/api
-   ```
-   
-   **Note:** Replace `shieldher-backend` with your actual backend service name
+```
+
+**Note:** Replace `shieldher-backend` with your actual backend service name
 
 5. Click **"Create Static Site"**
 6. Wait for deployment (takes 3-5 minutes)
@@ -112,9 +113,11 @@ Now that you have your frontend URL:
 
 1. Go back to **Backend Service** → **"Environment"** tab
 2. Update `CORS_ALLOWED_ORIGINS` with your actual frontend URL:
-   ```
+
+   ```sh
    CORS_ALLOWED_ORIGINS = https://shieldher-frontend.onrender.com
    ```
+
 3. Click **"Save Changes"**
 4. Backend will automatically redeploy
 
@@ -134,9 +137,10 @@ Now that you have your frontend URL:
    - ✅ Can view reports
    - ✅ Can manage lessons
 
-## 🎉 You're Live!
+## 🎉 You're Live
 
 Your URLs:
+
 - **Frontend:** `https://shieldher-frontend.onrender.com`
 - **Backend API:** `https://shieldher-backend.onrender.com/api`
 - **Admin Panel:** `https://shieldher-backend.onrender.com/admin`
@@ -166,14 +170,17 @@ Don't forget to update your README.md with the live deployment link:
 ### Keeping Services Active
 
 To prevent cold starts, you can:
+
 1. Use a service like UptimeRobot (free) to ping your site every 5 minutes
 2. Upgrade to paid plan ($7/month per service) for always-on
 
 ### Database Backup
 
 Free tier databases are deleted after 90 days. To keep your data:
+
 1. Upgrade to paid plan before 90 days
 2. Or export data regularly using:
+
    ```bash
    pg_dump $DATABASE_URL > backup.sql
    ```
@@ -181,34 +188,39 @@ Free tier databases are deleted after 90 days. To keep your data:
 ## 🔧 Troubleshooting
 
 ### Backend won't start
+
 - Check logs in Render dashboard
 - Verify DATABASE_URL is correct
 - Ensure migrations ran successfully
 
 ### Frontend can't connect to backend
+
 - Check CORS_ALLOWED_ORIGINS includes your frontend URL
 - Verify VITE_API_URL is correct
 - Check backend is running (visit /api/health/)
 
 ### Database connection errors
+
 - Ensure backend and database are in same region
 - Verify DATABASE_URL is the Internal URL, not External
 - Check database is running
 
 ### 502 Bad Gateway
+
 - Service is starting up (wait 30-60 seconds)
 - Check service logs for errors
 - Verify Dockerfile builds successfully locally
 
 ## 🆘 Need Help?
 
-- Render Docs: https://render.com/docs
-- Render Community: https://community.render.com
-- Django Deployment: https://docs.djangoproject.com/en/4.2/howto/deployment/
+- Render Docs: <https://render.com/docs>
+- Render Community: <https://community.render.com>
+- Django Deployment: <https://docs.djangoproject.com/en/4.2/howto/deployment/>
 
-## 🎊 Congratulations!
+## 🎊 Congratulations
 
 You've successfully deployed a full-stack application with:
+
 - ✅ React frontend
 - ✅ Django REST API backend
 - ✅ PostgreSQL database
