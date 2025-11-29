@@ -1,0 +1,87 @@
+/**
+ * BottomNav Styles
+ */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: white;
+  border-top: 1px solid var(--color-border, #E5E7EB);
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+  display: none; /* Hidden by default, shown on mobile */
+}
+
+.bottom-nav__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+  max-width: 100%;
+}
+
+.bottom-nav__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text-secondary, #6B7280);
+  transition: all 0.2s;
+  min-height: 44px;
+  min-width: 44px;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.bottom-nav__link:hover {
+  color: var(--color-primary, #8B5CF6);
+}
+
+.bottom-nav__link:focus {
+  outline: 2px solid var(--color-primary, #8B5CF6);
+  outline-offset: 2px;
+}
+
+.bottom-nav__link--active {
+  color: var(--color-primary, #8B5CF6);
+  background-color: #F5F3FF;
+}
+
+.bottom-nav__icon {
+  font-size: 1.25rem;
+}
+
+.bottom-nav__label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Show on mobile */
+@media (max-width: 768px) {
+  .bottom-nav {
+    display: block;
+  }
+}
+
+/* Dark theme support */
+[data-theme="dark"] .bottom-nav {
+  background-color: #1F2937;
+  border-top-color: #374151;
+}
+
+[data-theme="dark"] .bottom-nav__link {
+  color: #D1D5DB;
+}
+
+[data-theme="dark"] .bottom-nav__link:hover {
+  color: var(--color-primary, #8B5CF6);
+}
+
+[data-theme="dark"] .bottom-nav__link--active {
+  color: var(--color-primary, #8B5CF6);
+  background-color: #374151;
+}

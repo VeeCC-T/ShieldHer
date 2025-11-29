@@ -1,0 +1,110 @@
+/* LessonCard styles - Mobile-first */
+
+.lesson-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.lesson-card__image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.lesson-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lesson-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.lesson-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.lesson-card__category {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  text-transform: capitalize;
+}
+
+.lesson-card__badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.lesson-card__badge--completed {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.lesson-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1c1917;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.lesson-card__description {
+  font-size: 0.875rem;
+  color: #78716c;
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.lesson-card__meta {
+  display: flex;
+  gap: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e7e5e4;
+}
+
+.lesson-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #57534e;
+}
+
+.lesson-card__icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.lesson-card__quiz-score {
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  background-color: #fef3c7;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #92400e;
+  text-align: center;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .lesson-card__image {
+    height: 200px;
+  }
+}

@@ -1,0 +1,159 @@
+/**
+ * Navbar Styles
+ */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+  border-bottom: 1px solid #E5E7EB;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 2rem;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--color-text-primary, #1F2937);
+  font-weight: 700;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.navbar__logo {
+  font-size: 1.75rem;
+}
+
+.navbar__title {
+  display: none;
+}
+
+.navbar__links {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.navbar__link {
+  padding: 0.625rem 1rem;
+  text-decoration: none;
+  color: var(--color-text-secondary, #6B7280);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.navbar__link:hover {
+  background-color: #F3F4F6;
+  color: var(--color-text-primary, #1F2937);
+}
+
+.navbar__link:focus {
+  outline: 2px solid var(--color-primary, #8B5CF6);
+  outline-offset: 2px;
+}
+
+.navbar__link--active {
+  background-color: #F5F3FF;
+  color: var(--color-primary, #8B5CF6);
+  font-weight: 600;
+}
+
+.navbar__emergency {
+  flex-shrink: 0;
+}
+
+.navbar__emergency-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  background-color: #FEE2E2;
+  color: #991B1B;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.navbar__emergency-button:hover {
+  background-color: #FCA5A5;
+  transform: translateY(-1px);
+}
+
+.navbar__emergency-button:focus {
+  outline: 2px solid #EF4444;
+  outline-offset: 2px;
+}
+
+.navbar__emergency-icon {
+  font-size: 1.125rem;
+}
+
+.navbar__emergency-text {
+  display: none;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .navbar__title {
+    display: inline;
+  }
+
+  .navbar__links {
+    display: flex;
+  }
+
+  .navbar__emergency-text {
+    display: inline;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .navbar__container {
+    padding: 0 2rem;
+  }
+
+  .navbar__links {
+    gap: 1rem;
+  }
+}
+
+/* Dark theme support */
+[data-theme="dark"] .navbar {
+  background-color: #1F2937;
+  border-bottom-color: #374151;
+}
+
+[data-theme="dark"] .navbar__brand,
+[data-theme="dark"] .navbar__link {
+  color: #D1D5DB;
+}
+
+[data-theme="dark"] .navbar__link:hover {
+  background-color: #374151;
+  color: #F9FAFB;
+}
+
+[data-theme="dark"] .navbar__link--active {
+  background-color: #4C1D95;
+  color: #C4B5FD;
+}

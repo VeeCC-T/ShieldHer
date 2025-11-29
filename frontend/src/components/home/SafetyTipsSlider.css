@@ -1,0 +1,95 @@
+/**
+ * SafetyTipsSlider Styles
+ */
+.safety-tips-slider__card {
+  background: linear-gradient(135deg, var(--color-primary, #8B5CF6) 0%, var(--color-secondary, #EC4899) 100%);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  border: none;
+}
+
+.safety-tips-slider__content {
+  margin-bottom: 2rem;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.safety-tips-slider__icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.safety-tips-slider__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.safety-tips-slider__tip {
+  font-size: 1.125rem;
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.safety-tips-slider__indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.safety-tips-slider__indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.safety-tips-slider__indicator:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.safety-tips-slider__indicator:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.safety-tips-slider__indicator--active {
+  background-color: white;
+  border-color: white;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .safety-tips-slider__card {
+    padding: 1.5rem;
+  }
+  
+  .safety-tips-slider__icon {
+    font-size: 3rem;
+  }
+  
+  .safety-tips-slider__title {
+    font-size: 1.25rem;
+  }
+  
+  .safety-tips-slider__tip {
+    font-size: 1rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

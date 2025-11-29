@@ -1,0 +1,39 @@
+.lessons-page {
+  min-height: 100vh;
+  background-color: #F9FAFB;
+  padding: 2rem 1rem;
+}
+
+.lessons-page__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.lessons-page__header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.lessons-page__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.lessons-page__description {
+  font-size: 1.125rem;
+  color: #6B7280;
+  margin: 0;
+}
+
+.lessons-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.lessons-page__loading,
+.lessons-page__error {
+  text-align: center;
+  padding: 2rem;
+}

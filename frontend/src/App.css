@@ -1,0 +1,26 @@
+/**
+ * App Global Styles
+ */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__main {
+  flex: 1;
+  padding-bottom: 80px; /* Space for mobile nav */
+}
+
+@media (min-width: 768px) {
+  .app__main {
+    padding-bottom: 0;
+  }
+}
+
+/* Dark theme support */
+[data-theme="dark"] {
+  background-color: #111827;
+  color: #F9FAFB;
+}

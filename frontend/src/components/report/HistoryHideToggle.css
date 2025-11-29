@@ -1,0 +1,59 @@
+/* HistoryHideToggle styles */
+
+.history-hide-toggle {
+  padding: 1rem;
+  background-color: #fef3c7;
+  border-radius: 0.5rem;
+  border: 1px solid #fbbf24;
+}
+
+.history-hide-toggle__label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.history-hide-toggle__checkbox {
+  margin-top: 0.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+
+.history-hide-toggle__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.history-hide-toggle__text strong {
+  color: #78350f;
+  font-size: 0.875rem;
+}
+
+.history-hide-toggle__description {
+  color: #92400e;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.history-hide-toggle__notice {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  background-color: #d1fae5;
+  border-radius: 0.375rem;
+  color: #065f46;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.history-hide-toggle__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}

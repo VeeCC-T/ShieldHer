@@ -1,0 +1,126 @@
+/**
+ * QuickActions Styles
+ */
+.quick-actions__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.quick-actions__link {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s;
+}
+
+.quick-actions__link:hover {
+  transform: translateY(-2px);
+}
+
+.quick-actions__link:focus {
+  outline: 2px solid var(--color-primary, #8B5CF6);
+  outline-offset: 2px;
+  border-radius: 0.75rem;
+}
+
+.quick-actions__card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.2s;
+  border: 2px solid transparent;
+}
+
+.quick-actions__card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quick-actions__card--danger {
+  border-color: #FCA5A5;
+  background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
+}
+
+.quick-actions__card--primary {
+  border-color: #C4B5FD;
+  background: linear-gradient(135deg, #F3F4F6 0%, #E5E7EB 100%);
+}
+
+.quick-actions__card--secondary {
+  border-color: #F9A8D4;
+  background: linear-gradient(135deg, #FCE7F3 0%, #FBCFE8 100%);
+}
+
+.quick-actions__card--neutral {
+  border-color: #D1D5DB;
+  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+}
+
+.quick-actions__card--success {
+  border-color: #86EFAC;
+  background: linear-gradient(135deg, #DCFCE7 0%, #BBF7D0 100%);
+}
+
+.quick-actions__card--info {
+  border-color: #93C5FD;
+  background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+}
+
+.quick-actions__icon {
+  font-size: 3rem;
+}
+
+.quick-actions__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary, #1F2937);
+  margin: 0;
+}
+
+.quick-actions__description {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary, #6B7280);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .quick-actions__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .quick-actions__card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .quick-actions__icon {
+    font-size: 2.5rem;
+  }
+  
+  .quick-actions__title {
+    font-size: 1.125rem;
+  }
+  
+  .quick-actions__description {
+    font-size: 0.875rem;
+  }
+}
+
+/* Dark theme support */
+[data-theme="dark"] .quick-actions__card {
+  background: #1F2937;
+  border-color: #374151;
+}
+
+[data-theme="dark"] .quick-actions__title {
+  color: #F9FAFB;
+}
+
+[data-theme="dark"] .quick-actions__description {
+  color: #D1D5DB;
+}

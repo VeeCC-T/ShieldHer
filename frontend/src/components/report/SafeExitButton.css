@@ -1,0 +1,58 @@
+/* SafeExitButton styles - High visibility for safety */
+
+.safe-exit {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 9999;
+  min-height: 44px; /* Touch-friendly */
+}
+
+.safe-exit--fixed {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.safe-exit--static {
+  position: static;
+}
+
+.safe-exit:hover {
+  background-color: #dc2626;
+  transform: scale(1.05);
+}
+
+.safe-exit:focus-visible {
+  outline: 3px solid #fca5a5;
+  outline-offset: 2px;
+}
+
+.safe-exit__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.safe-exit__text {
+  font-weight: 600;
+}
+
+/* Mobile optimization */
+@media (max-width: 640px) {
+  .safe-exit--fixed {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.625rem 1rem;
+    font-size: 0.8125rem;
+  }
+}
