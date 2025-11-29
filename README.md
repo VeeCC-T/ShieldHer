@@ -13,7 +13,8 @@
 | Name | Role | GitHub |
 |------|------|--------|
 | VeeCC-T | Full Stack Developer & Project Lead | [@VeeCC-T](https://github.com/VeeCC-T) |
-| Presley | Frontend Developer] | [Pres264] |
+| Presley | Frontend Developer | [@Pres264](https://github.com/Pres264) |
+| Oyugi | Developer | [@Oyugi](https://github.com/Oyugi) |
 | [Collaborator Name] | [Role - e.g., Backend Developer] | [@username] |
 | [Collaborator Name] | [Role - e.g., UI/UX Designer] | [@username] |
 
@@ -31,7 +32,7 @@ ShieldHer provides a safe, anonymous platform for digital literacy education, in
 
 ## 📁 Project Structure
 
-```
+```sh
 shieldher/
 ├── backend/              # Django + DRF backend
 │   ├── config/          # Django project settings
