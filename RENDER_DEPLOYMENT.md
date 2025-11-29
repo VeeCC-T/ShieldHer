@@ -45,7 +45,7 @@ This guide will help you deploy the complete ShieldHer platform (Frontend + Back
 3. Configure the service:
    - **Name:** `shieldher-backend`
    - **Region:** **Same as your database** (important!)
-   - **Branch:** `main`
+   - **Branch:** `refactor`
    - **Root Directory:** `backend`
    - **Environment:** `Docker`
    - **Dockerfile Path:** `backend/Dockerfile`
@@ -55,35 +55,28 @@ This guide will help you deploy the complete ShieldHer platform (Frontend + Back
 
    ```sh
    DJANGO_SETTINGS_MODULE = config.settings.production
-   SECRET_KEY = <click "Generate" button>
+   DJANGO_SECRET_KEY = <click "Generate" button>
    DATABASE_URL = <paste the Internal Database URL from Step 2>
-   ALLOWED_HOSTS = .onrender.com
+   DJANGO_ALLOWED_HOSTS = .onrender.com
    DEBUG = False
    CORS_ALLOWED_ORIGINS = https://shieldher-frontend.onrender.com
+   ENCRYPTION_KEY = <click "Generate" button>
+   DJANGO_SUPERUSER_USERNAME = admin
+   DJANGO_SUPERUSER_EMAIL = admin@shieldher.com
+   DJANGO_SUPERUSER_PASSWORD = <your-secure-password>
    ```
 
-   **Note:** For `CORS_ALLOWED_ORIGINS`, use your actual frontend URL (you'll update this in Step 5)
+   **Note:** For `CORS_ALLOWED_ORIGINS`, use your actual frontend URL (you'll update this in Step 5). The superuser account will be created automatically on first deployment.
 
 5. Click **"Create Web Service"**
 6. Wait for deployment (first deploy takes 5-10 minutes)
 
-### Step 4: Run Database Migrations
+### Step 4: Verify Deployment
 
-After backend deployment completes:
+After backend deployment completes successfully, the admin user will be created automatically. You can now:
 
-1. Go to your backend service page
-2. Click **"Shell"** tab (on the left sidebar)
-3. Run these commands one by one:
-
-```bash
-   python manage.py migrate
-   python manage.py createsuperuser
-```
-
-4. Follow prompts to create admin user:
-   - Username: (your choice)
-   - Email: (your email)
-   - Password: (secure password)
+1. Visit the health endpoint: `https://<your-backend>.onrender.com/api/health/`
+2. Login to admin panel: `https://<your-backend>.onrender.com/admin` with the credentials you set in environment variables
 
 ### Step 5: Deploy React Frontend
 
@@ -91,7 +84,7 @@ After backend deployment completes:
 2. Select your **"ShieldHer"** repository
 3. Configure the service:
    - **Name:** `shieldher-frontend`
-   - **Branch:** `main`
+   - **Branch:** `refactor`
    - **Root Directory:** Leave empty
    - **Build Command:** `cd frontend && npm install && npm run build`
    - **Publish Directory:** `frontend/dist`
