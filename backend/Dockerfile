@@ -25,7 +25,7 @@ RUN pip install --upgrade pip && \
 COPY . .
 
 # Create necessary directories
-RUN mkdir -p staticfiles media
+RUN mkdir -p staticfiles media logs
 
 # Collect static files
 RUN python manage.py collectstatic --noinput --settings=config.settings.production || true

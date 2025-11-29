@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import api from '../utils/api';
+import { apiRequest } from '../utils/api';
 
 export const useLessons = (filters = {}) => {
   const [lessons, setLessons] = useState([]);
@@ -20,22 +20,22 @@ export const useLessons = (filters = {}) => {
     try {
       setLoading(true);
       setError(null);
-      
+
       const params = new URLSearchParams();
       if (filters.category) params.append('category', filters.category);
       if (filters.difficulty) params.append('difficulty', filters.difficulty);
       if (filters.search) params.append('search', filters.search);
-      
-      const response = await api.get(`/api/lessons/?${params.toString()}`);
-      
-      setLessons(response.data.results || response.data);
+
+      const data = await apiRequest(`/api/lessons/?${params.toString()}`);
+
+      setLessons(data.results || data);
       setPagination({
-        count: response.data.count,
-        next: response.data.next,
-        previous: response.data.previous,
+        count: data.count,
+        next: data.next,
+        previous: data.previous,
       });
     } catch (err) {
-      setError(err.message);
+      setError(err.message || 'Failed to load lessons');
     } finally {
       setLoading(false);
     }
@@ -59,10 +59,10 @@ export const useLesson = (id) => {
     try {
       setLoading(true);
       setError(null);
-      const response = await api.get(`/api/lessons/${id}/`);
-      setLesson(response.data);
+      const data = await apiRequest(`/api/lessons/${id}/`);
+      setLesson(data);
     } catch (err) {
-      setError(err.message);
+      setError(err.message || 'Failed to load lesson');
     } finally {
       setLoading(false);
     }
@@ -81,8 +81,8 @@ export const useCategories = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await api.get('/api/lessons/categories/');
-      setCategories(response.data.categories || []);
+      const data = await apiRequest('/api/lessons/categories/');
+      setCategories(data.categories || []);
     } catch (err) {
       console.error('Failed to fetch categories:', err);
     } finally {
@@ -103,8 +103,8 @@ export const useDifficulties = () => {
 
   const fetchDifficulties = async () => {
     try {
-      const response = await api.get('/api/lessons/difficulties/');
-      setDifficulties(response.data.difficulties || []);
+      const data = await apiRequest('/api/lessons/difficulties/');
+      setDifficulties(data.difficulties || []);
     } catch (err) {
       console.error('Failed to fetch difficulties:', err);
     } finally {

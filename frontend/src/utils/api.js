@@ -44,4 +44,21 @@ api.interceptors.response.use(
   }
 );
 
+/**
+ * Convenience wrapper for making API requests with relative URLs.
+ * Usage: apiRequest('/api/endpoint/', { method: 'POST', body: JSON.stringify(payload) })
+ */
+export const apiRequest = async (url, options = {}) => {
+  const { method = 'GET', body, headers = {} } = options;
+  const config = {
+    url,
+    method,
+    headers,
+    // Only include data for methods that support a body
+    ...(body !== undefined ? { data: body } : {}),
+  };
+  const response = await api.request(config);
+  return response.data;
+};
+
 export default api;
