@@ -85,9 +85,9 @@ After backend deployment completes successfully, the admin user will be created 
 3. Configure the service:
    - **Name:** `shieldher-frontend`
    - **Branch:** `refactor`
-   - **Root Directory:** Leave empty
+   - **Root Directory:** Leave blank (do NOT set to `frontend`)
    - **Build Command:** `cd frontend && npm install && npm run build`
-   - **Publish Directory:** `frontend/dist`
+   - **Publish Directory:** `frontend/dist` ⚠️ **CRITICAL:** Must be exactly `frontend/dist` from repo root
 
 4. Add **Environment Variable**:
 
@@ -99,6 +99,12 @@ After backend deployment completes successfully, the admin user will be created 
 
 5. Click **"Create Static Site"**
 6. Wait for deployment (takes 3-5 minutes)
+
+**Troubleshooting:** If routes like `/emergency` show "404 Not Found":
+
+- Verify **Publish Directory** is exactly `frontend/dist` (not just `dist`)
+- Check build logs confirm `_redirects` file was copied to dist
+- The `_redirects` file in `frontend/public/` enables SPA routing (already configured)
 
 ### Step 6: Update CORS Settings
 

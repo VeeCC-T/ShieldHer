@@ -1,0 +1,5 @@
+# Render.com SPA routing config
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
