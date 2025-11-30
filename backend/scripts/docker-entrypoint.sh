@@ -4,6 +4,11 @@ set -e
 echo "Running migrations..."
 python manage.py migrate --noinput
 
+if [ "${SEED_DATA}" = "true" ]; then
+    echo "Seeding initial data..."
+    python manage.py seed_initial_data || echo "Seed command failed or models missing"
+fi
+
 echo "Creating superuser if not exists..."
 python manage.py shell <<EOF
 from apps.authentication.models import AdminUser
