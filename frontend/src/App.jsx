@@ -19,6 +19,7 @@ import { ReportPage } from './pages/report/ReportPage';
 import { ReportSessionProvider } from './components/report/sessionContext.jsx';
 
 import './App.css';
+import { GlobalEmergencyLayer } from './components/emergency/GlobalEmergencyLayer.jsx';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
         </main>
         
         <MobileNav />
+        <GlobalEmergencyLayer />
       </div>
     </BrowserRouter>
   );

@@ -46,6 +46,9 @@ export const ReportPage = () => {
             <PrivacyReminderCard />
             <ThreatAssessmentPrompt />
             <EmergencyHelpCard />
+            {/* Inline quick access to helplines */}
+            {/* This supplements the global emergency layer */}
+            
             <div className="report-page__entry-actions">
               <button className="report-page__primary-btn" onClick={startReport}>Start Report</button>
               <button className="report-page__secondary-btn" onClick={() => setShowTips(p => !p)}>{showTips ? 'Hide Tips' : 'View Safety Tips'}</button>
