@@ -4,8 +4,8 @@ import React, { createContext, useContext, useState, useEffect, useRef } from 'r
 // The encryption key is generated per session and stored only in memory.
 // This provides actual encryption for sensitive report data during the session.
 
-const generateKey = async () => {
-  return await crypto.subtle.generateKey(
+const generateKey = () => {
+  return crypto.subtle.generateKey(
     { name: 'AES-GCM', length: 256 },
     false, // not extractable
     ['encrypt', 'decrypt']
@@ -57,11 +57,13 @@ export const ReportSessionProvider = ({ children }) => {
   const [calmMode, setCalmMode] = useState(false);
   const [lastActivity, setLastActivity] = useState(Date.now());
   const encryptionKeyRef = useRef(null);
+  const keyGenerationPromiseRef = useRef(null);
 
   // Initialize encryption key on mount
   useEffect(() => {
-    generateKey().then(key => {
+    keyGenerationPromiseRef.current = generateKey().then(key => {
       encryptionKeyRef.current = key;
+      return key;
     });
   }, []);
 
@@ -77,6 +79,7 @@ export const ReportSessionProvider = ({ children }) => {
 
   // Decrypt draft when reportDraft changes
   useEffect(() => {
+    let cancelled = false;
     const decryptDraft = async () => {
       if (!reportDraft || !encryptionKeyRef.current) {
         setDecryptedDraft(null);
@@ -84,15 +87,25 @@ export const ReportSessionProvider = ({ children }) => {
       }
       try {
         const decrypted = await decryptData(encryptionKeyRef.current, reportDraft);
-        setDecryptedDraft(JSON.parse(decrypted));
+        if (!cancelled) {
+          setDecryptedDraft(JSON.parse(decrypted));
+        }
       } catch {
-        setDecryptedDraft(null);
+        if (!cancelled) {
+          setDecryptedDraft(null);
+        }
       }
     };
     decryptDraft();
+    return () => { cancelled = true; };
   }, [reportDraft]);
 
   const updateDraft = async (draft) => {
+    // Wait for initial key generation if still in progress
+    if (!encryptionKeyRef.current && keyGenerationPromiseRef.current) {
+      await keyGenerationPromiseRef.current;
+    }
+    // Fallback key generation (shouldn't normally happen)
     if (!encryptionKeyRef.current) {
       encryptionKeyRef.current = await generateKey();
     }
