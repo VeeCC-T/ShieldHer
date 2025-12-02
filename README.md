@@ -4,19 +4,26 @@
 
 ## 🌐 Live Demo
 
-**Deployed Application:** [Coming Soon - Deploy Link Here]
+**Deployed Application:** https://shieldher-61ix.onrender.com
 
 > Note: The application will be deployed on Render.com (free tier). Initial load may take 30-60 seconds as the service spins up.
 
 ## 👥 Team & Collaborators
 
-| Name | Role | GitHub |
-|------|------|--------|
+| Name | Role | Contact |
+|------|------|---------|
 | VeeCC-T | Full Stack Developer & Project Lead | [@VeeCC-T](https://github.com/VeeCC-T) |
-| Presley | Frontend Developer | [@Pres264](https://github.com/Pres264) |
-| Oyugi | Developer | [@Oyugi](https://github.com/Oyugi) |
-| [Collaborator Name] | [Role - e.g., Backend Developer] | [@username] |
-| [Collaborator Name] | [Role - e.g., UI/UX Designer] | [@username] |
+| Presley Oluoch | Frontend Developer, UI/UX Designer | presleyoluoch@gmail.com |
+| Oyugi Mourice | Backend Engineer, Security/Privacy Engineer | oyugimaurice22@gmail.com |
+| Geoffrey Ominde | Backend Engineer, AI/Chatbot Developer | geoffominde8@gmail.com |
+| H. Said | Frontend Developer, UX Writer | h.said@mombasawater.co.ke |
+| John Omondi | Fullstack Integrator, UI/UX, Project Lead, QA Tester | omondijohn669@gmail.com |
+
+## 📊 Project Resources
+
+- **Pitch Deck:** [View Presentation](https://www.popai.pro/ppt-share?shareKey=4ab88024520f0e454dcc43d305187d1e79dec31bb8bdc720d52a1f7be4c8d343&utm_source=presentationsharepage)
+- **Live Demo:** [https://shieldher-61ix.onrender.com ]
+- **Documentation:** [Deployment Guide](./DEPLOYMENT.md)
 
 ## 🌟 Mission
 
