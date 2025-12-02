@@ -8,7 +8,8 @@ from .views import (
     HelplineViewSet,
     ResourceViewSet,
     chatbot_message,
-    chatbot_suggestions
+    chatbot_suggestions,
+    chatbot_resources
 )
 
 app_name = 'resources'
@@ -21,4 +22,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('chatbot/message/', chatbot_message, name='chatbot-message'),
     path('chatbot/suggestions/', chatbot_suggestions, name='chatbot-suggestions'),
+    path('chatbot/resources/', chatbot_resources, name='chatbot-resources'),
 ]

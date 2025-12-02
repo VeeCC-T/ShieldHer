@@ -55,4 +55,5 @@ SafeExitButton.propTypes = {
   position: PropTypes.oneOf(['fixed', 'static']),
 };
 
+export { SafeExitButton };
 export default SafeExitButton;

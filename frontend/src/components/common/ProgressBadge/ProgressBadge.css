@@ -1,0 +1,259 @@
+/**
+ * ProgressBadge Styles
+ */
+
+.progress-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-badge:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+.progress-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--badge-color, #8b5cf6);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.progress-badge:hover::before {
+  opacity: 1;
+}
+
+.progress-badge__icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.progress-badge:hover .progress-badge__icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.progress-badge__details {
+  text-align: center;
+}
+
+.progress-badge__name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #18181b;
+}
+
+.progress-badge__description {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: #71717a;
+  line-height: 1.4;
+}
+
+/* Sizes */
+.progress-badge--sm {
+  padding: 0.5rem;
+}
+
+.progress-badge--sm .progress-badge__icon {
+  font-size: 1.5rem;
+}
+
+.progress-badge--md {
+  padding: 0.75rem;
+}
+
+.progress-badge--md .progress-badge__icon {
+  font-size: 2rem;
+}
+
+.progress-badge--lg {
+  padding: 1rem;
+  min-width: 150px;
+}
+
+.progress-badge--lg .progress-badge__icon {
+  font-size: 3rem;
+}
+
+.progress-badge--xl {
+  padding: 1.5rem;
+  min-width: 200px;
+}
+
+.progress-badge--xl .progress-badge__icon {
+  font-size: 4rem;
+}
+
+/* Locked state */
+.progress-badge--locked {
+  opacity: 0.5;
+  filter: grayscale(1);
+  cursor: not-allowed;
+}
+
+.progress-badge--locked:hover {
+  transform: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.progress-badge--locked .progress-badge__icon {
+  filter: grayscale(1) brightness(1.2);
+}
+
+.progress-badge--locked:hover .progress-badge__icon {
+  transform: none;
+}
+
+/* Badge Collection */
+.badge-collection {
+  padding: 2rem;
+  background: #fafafa;
+  border-radius: 1rem;
+}
+
+.badge-collection__title {
+  margin: 0 0 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #18181b;
+}
+
+.badge-collection__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Progress Stats */
+.progress-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  border-radius: 1rem;
+  color: white;
+}
+
+.progress-stats__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+}
+
+.progress-stats__item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.progress-stats__icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.progress-stats__content {
+  flex: 1;
+}
+
+.progress-stats__label {
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.progress-stats__value {
+  margin: 0.25rem 0 0;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .badge-collection__grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .progress-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .progress-stats__item {
+    padding: 1rem;
+  }
+
+  .progress-stats__icon {
+    font-size: 2rem;
+  }
+
+  .progress-stats__value {
+    font-size: 1.5rem;
+  }
+}
+
+/* Dark mode */
+[data-theme="dark"] .progress-badge {
+  background: #27272a;
+}
+
+[data-theme="dark"] .progress-badge__name {
+  color: #fafafa;
+}
+
+[data-theme="dark"] .progress-badge__description {
+  color: #d4d4d8;
+}
+
+[data-theme="dark"] .badge-collection {
+  background: #27272a;
+}
+
+[data-theme="dark"] .badge-collection__title {
+  color: #fafafa;
+}
+
+/* Animation for new badges */
+@keyframes badge-unlock {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.progress-badge--unlocked {
+  animation: badge-unlock 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}

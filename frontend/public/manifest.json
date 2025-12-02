@@ -1,0 +1,125 @@
+{
+  "name": "ShieldHer - Support for Survivors",
+  "short_name": "ShieldHer",
+  "description": "Safe, anonymous support and resources for survivors of domestic violence and digital abuse",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait-primary",
+  "categories": ["health", "lifestyle", "education"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/home.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshots/lessons.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Emergency Helplines",
+      "short_name": "Emergency",
+      "description": "Quick access to 24/7 crisis support",
+      "url": "/emergency/helplines",
+      "icons": [
+        {
+          "src": "/icons/emergency.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Anonymous Report",
+      "short_name": "Report",
+      "description": "Report abuse anonymously",
+      "url": "/report",
+      "icons": [
+        {
+          "src": "/icons/report.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Digital Literacy",
+      "short_name": "Learn",
+      "description": "Learn digital safety skills",
+      "url": "/lessons",
+      "icons": [
+        {
+          "src": "/icons/learn.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "scope": "/",
+  "features": [
+    "offline-support",
+    "emergency-contacts",
+    "anonymous-reporting",
+    "digital-literacy",
+    "resource-library"
+  ]
+}

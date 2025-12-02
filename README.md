@@ -14,7 +14,7 @@
 |------|------|---------|
 | VeeCC-T | Full Stack Developer & Project Lead | [@VeeCC-T](https://github.com/VeeCC-T) |
 | Presley Oluoch | Frontend Developer, UI/UX Designer | presleyoluoch@gmail.com |
-| Maurice Oyugi | Backend Engineer, Security/Privacy Engineer | oyugimaurice22@gmail.com |
+| Oyugi Mourice | Backend Engineer, Security/Privacy Engineer | oyugimaurice22@gmail.com |
 | Geoffrey Ominde | Backend Engineer, AI/Chatbot Developer | geoffominde8@gmail.com |
 | H. Said | Frontend Developer, UX Writer | h.said@mombasawater.co.ke |
 | John Omondi | Fullstack Integrator, UI/UX, Project Lead, QA Tester | omondijohn669@gmail.com |
@@ -39,7 +39,7 @@ ShieldHer provides a safe, anonymous platform for digital literacy education, in
 
 ## 📁 Project Structure
 
-```
+```sh
 shieldher/
 ├── backend/              # Django + DRF backend
 │   ├── config/          # Django project settings
@@ -73,12 +73,14 @@ shieldher/
 ### Using Docker (Recommended)
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd shieldher
    ```
 
 2. **Set up environment variables**
+
    ```bash
    cp backend/.env.example backend/.env
    cp frontend/.env.example frontend/.env
@@ -86,25 +88,28 @@ shieldher/
    ```
 
 3. **Start all services**
+
    ```bash
    docker-compose up -d
    ```
 
 4. **Run database migrations**
+
    ```bash
    docker-compose exec backend python manage.py migrate
    ```
 
 5. **Create admin user**
+
    ```bash
    docker-compose exec backend python manage.py createsuperuser
    ```
 
 6. **Access the application**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8000
-   - Admin Panel: http://localhost:8000/admin
-   - API Documentation: http://localhost:8000/api/schema/
+   - Frontend: <http://localhost:5173>
+   - Backend API: <http://localhost:8000>
+   - Admin Panel: <http://localhost:8000/admin>
+   - API Health: <http://localhost:8000/api/health/>
 
 ### Local Development (Without Docker)
 
@@ -250,6 +255,7 @@ This is a collaborative project. Contributors should:
 ### Adding New Features
 
 See the [Extension Guidelines](./docs/EXTENSION_GUIDELINES.md) for detailed instructions on:
+
 - Adding new Django apps
 - Creating new API endpoints
 - Building new UI components
@@ -265,6 +271,7 @@ See the [Extension Guidelines](./docs/EXTENSION_GUIDELINES.md) for detailed inst
 ## 📋 Task Checklist Template
 
 When completing work, use the `TASK_CHECKLIST.md` template to document:
+
 - Files changed
 - Tests added
 - Accessibility considerations
@@ -315,8 +322,9 @@ docker-compose exec backend python manage.py migrate
 ### Deploying to Render.com (Recommended - Free Tier)
 
 #### Prerequisites
+
 - GitHub account with this repository
-- Render.com account (sign up at https://render.com)
+- Render.com account (sign up at <https://render.com>)
 
 #### Step 1: Deploy PostgreSQL Database
 
@@ -342,6 +350,7 @@ docker-compose exec backend python manage.py migrate
    - **Dockerfile Path:** backend/Dockerfile
    - **Plan:** Free
 4. Add Environment Variables:
+
    ```
    DJANGO_SETTINGS_MODULE=config.settings.production
    SECRET_KEY=<generate-a-secure-random-key>
@@ -350,6 +359,7 @@ docker-compose exec backend python manage.py migrate
    DEBUG=False
    CORS_ALLOWED_ORIGINS=https://your-frontend-url.onrender.com
    ```
+
 5. Click "Create Web Service"
 6. After deployment, run migrations:
    - Go to Shell tab
@@ -366,9 +376,11 @@ docker-compose exec backend python manage.py migrate
    - **Build Command:** `cd frontend && npm install && npm run build`
    - **Publish Directory:** `frontend/dist`
 4. Add Environment Variable:
+
    ```
    VITE_API_URL=https://your-backend-url.onrender.com/api
    ```
+
 5. Click "Create Static Site"
 
 #### Step 4: Update CORS Settings
@@ -380,17 +392,20 @@ docker-compose exec backend python manage.py migrate
 ### Alternative Deployment Options
 
 #### Railway.app
+
 - Supports Docker and PostgreSQL
 - $5 free credit monthly
 - Automatic deployments from GitHub
 - [Railway Deployment Guide](https://docs.railway.app/)
 
 #### Vercel (Frontend) + Railway (Backend)
+
 - Vercel: Best for React apps, unlimited bandwidth
 - Railway: Good for Django + PostgreSQL
 - Split deployment for better performance
 
 #### Fly.io
+
 - Excellent Docker support
 - Free tier: 3 shared-cpu VMs, 3GB storage
 - Global edge network
@@ -412,6 +427,7 @@ docker-compose exec backend python manage.py migrate
 ## 📞 Support
 
 For questions or issues:
+
 - Check the [API Documentation](http://localhost:8000/api/schema/)
 - Review the [Design Document](./.kiro/specs/shieldher-foundation/design.md)
 - Contact the team lead

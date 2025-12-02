@@ -108,3 +108,105 @@ def generate_confirmation_code(prefix="SH"):
     random_part = uuid.uuid4().hex[:6].upper()
     
     return f"{prefix}-{year}-{random_part}"
+
+
+def detect_pii(text):
+    """
+    Detect potential PII (Personally Identifiable Information) in text.
+    
+    Args:
+        text (str): Text to check for PII
+        
+    Returns:
+        list: List of detected PII types (e.g., ['email', 'phone'])
+    """
+    import re
+    
+    if not text:
+        return []
+    
+    detected = []
+    
+    # Email detection
+    email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+    if re.search(email_pattern, text):
+        detected.append('email')
+    
+    # Phone number detection (various formats)
+    phone_patterns = [
+        r'\b\d{3}[-.]?\d{3}[-.]?\d{4}\b',  # 123-456-7890 or 1234567890
+        r'\b\(\d{3}\)\s*\d{3}[-.]?\d{4}\b',  # (123) 456-7890
+        r'\b\+\d{1,3}[-.]?\d{1,14}\b',  # International format
+    ]
+    for pattern in phone_patterns:
+        if re.search(pattern, text):
+            detected.append('phone')
+            break
+    
+    # Name detection (simple heuristic: capitalized words that might be names)
+    # This is a basic check and may have false positives
+    name_pattern = r'\b[A-Z][a-z]+ [A-Z][a-z]+\b'
+    if re.search(name_pattern, text):
+        detected.append('possible_name')
+    
+    # Address detection (street numbers)
+    address_pattern = r'\b\d+\s+[A-Z][a-z]+\s+(Street|St|Avenue|Ave|Road|Rd|Boulevard|Blvd|Lane|Ln|Drive|Dr)\b'
+    if re.search(address_pattern, text, re.IGNORECASE):
+        detected.append('address')
+    
+    # Social security number (US format)
+    ssn_pattern = r'\b\d{3}-\d{2}-\d{4}\b'
+    if re.search(ssn_pattern, text):
+        detected.append('ssn')
+    
+    return detected
+
+
+def redact_pii(text, detected_pii=None):
+    """
+    Redact PII (Personally Identifiable Information) from text.
+    
+    Args:
+        text (str): Text to redact PII from
+        detected_pii (list): Optional list of already detected PII types
+        
+    Returns:
+        str: Text with PII redacted
+    """
+    import re
+    
+    if not text:
+        return text
+    
+    # If PII types not provided, detect them first
+    if detected_pii is None:
+        detected_pii = detect_pii(text)
+    
+    redacted_text = text
+    
+    # Redact emails
+    if 'email' in detected_pii:
+        email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+        redacted_text = re.sub(email_pattern, '[EMAIL REDACTED]', redacted_text)
+    
+    # Redact phone numbers
+    if 'phone' in detected_pii:
+        phone_patterns = [
+            r'\b\d{3}[-.]?\d{3}[-.]?\d{4}\b',
+            r'\b\(\d{3}\)\s*\d{3}[-.]?\d{4}\b',
+            r'\b\+\d{1,3}[-.]?\d{1,14}\b',
+        ]
+        for pattern in phone_patterns:
+            redacted_text = re.sub(pattern, '[PHONE REDACTED]', redacted_text)
+    
+    # Redact SSN
+    if 'ssn' in detected_pii:
+        ssn_pattern = r'\b\d{3}-\d{2}-\d{4}\b'
+        redacted_text = re.sub(ssn_pattern, '[SSN REDACTED]', redacted_text)
+    
+    # Redact addresses
+    if 'address' in detected_pii:
+        address_pattern = r'\b\d+\s+[A-Z][a-z]+\s+(Street|St|Avenue|Ave|Road|Rd|Boulevard|Blvd|Lane|Ln|Drive|Dr)\b'
+        redacted_text = re.sub(address_pattern, '[ADDRESS REDACTED]', redacted_text, flags=re.IGNORECASE)
+    
+    return redacted_text

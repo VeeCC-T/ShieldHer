@@ -3,25 +3,37 @@ Development settings for ShieldHer project.
 """
 
 from .base import *
+try:
+    import dj_database_url
+except Exception:
+    dj_database_url = None
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
+# Allow all hosts in development
+ALLOWED_HOSTS = ['*']
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME', 'shieldher_db'),
-        'USER': os.environ.get('DB_USER', 'shieldher_user'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'shieldher_password'),
-        'HOST': os.environ.get('DB_HOST', 'localhost'),
-        'PORT': os.environ.get('DB_PORT', '5432'),
-        'CONN_MAX_AGE': 600,
+# Database - Support both DATABASE_URL and individual env vars
+if os.environ.get('DATABASE_URL') and dj_database_url:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.environ.get('DATABASE_URL'),
+            conn_max_age=600,
+        )
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ.get('DB_NAME', 'shieldher'),
+            'USER': os.environ.get('DB_USER', 'shieldher_user'),
+            'PASSWORD': os.environ.get('DB_PASSWORD', 'shieldher_pass'),
+            'HOST': os.environ.get('DB_HOST', 'localhost'),
+            'PORT': os.environ.get('DB_PORT', '5432'),
+            'CONN_MAX_AGE': 600,
+        }
+    }
 
 # Email backend for development (console)
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

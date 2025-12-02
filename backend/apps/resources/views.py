@@ -16,7 +16,7 @@ from .serializers import (
     ResourceDetailSerializer,
     ResourceCreateSerializer
 )
-from .chatbot import get_chatbot_response, MockChatbot
+from .chatbot import get_chatbot_response, EnhancedChatbot
 
 
 class HelplineViewSet(viewsets.ModelViewSet):
@@ -164,24 +164,27 @@ class ResourceViewSet(viewsets.ModelViewSet):
 @permission_classes([AllowAny])
 def chatbot_message(request):
     """
-    Process chatbot message and return response.
+    Process chatbot message and return enhanced response.
     POST /api/chatbot/message/
     
     Request body:
     {
-        "message": "I need help"
+        "message": "I need help",
+        "conversation_history": []  // optional
     }
     
     Response:
     {
         "response": "...",
         "category": "crisis",
+        "follow_up": "...",  // optional
         "timestamp": "2024-01-15T10:30:00Z"
     }
     """
     from django.utils import timezone
     
     message = request.data.get('message', '')
+    conversation_history = request.data.get('conversation_history', [])
     
     if not message or not message.strip():
         return Response(
@@ -189,14 +192,20 @@ def chatbot_message(request):
             status=status.HTTP_400_BAD_REQUEST
         )
     
-    # Get chatbot response
-    result = get_chatbot_response(message)
+    # Get enhanced chatbot response
+    result = get_chatbot_response(message, conversation_history)
     
-    return Response({
+    response_data = {
         'response': result['response'],
         'category': result['category'],
         'timestamp': timezone.now().isoformat()
-    })
+    }
+    
+    # Include follow-up question if available
+    if result.get('follow_up'):
+        response_data['follow_up'] = result['follow_up']
+    
+    return Response(response_data)
 
 
 @api_view(['GET'])
@@ -211,8 +220,34 @@ def chatbot_suggestions(request):
         "suggestions": ["...", "..."]
     }
     """
-    suggestions = MockChatbot.get_suggested_questions()
+    suggestions = EnhancedChatbot.get_suggested_questions()
     
     return Response({
         'suggestions': suggestions
+    })
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def chatbot_resources(request):
+    """
+    Get quick access emergency resources.
+    GET /api/chatbot/resources/
+    
+    Response:
+    {
+        "resources": [
+            {
+                "name": "...",
+                "contact": "...",
+                "description": "...",
+                "type": "phone|text|emergency"
+            }
+        ]
+    }
+    """
+    resources = EnhancedChatbot.get_quick_resources()
+    
+    return Response({
+        'resources': resources
     })

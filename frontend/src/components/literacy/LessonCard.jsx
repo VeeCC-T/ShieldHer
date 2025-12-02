@@ -103,4 +103,5 @@ LessonCard.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
+export { LessonCard };
 export default LessonCard;

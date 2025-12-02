@@ -16,8 +16,10 @@ import { SafetySettings } from './pages/settings';
 // Placeholder pages (to be created by Person B & C or imported)
 import { LessonsPage } from './pages/lessons/LessonsPage';
 import { ReportPage } from './pages/report/ReportPage';
+import { ReportSessionProvider } from './components/report/sessionContext.jsx';
 
 import './App.css';
+import { GlobalEmergencyLayer } from './components/emergency/GlobalEmergencyLayer.jsx';
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
         <Navbar />
         
         <main className="app__main">
+          <ReportSessionProvider>
           <Routes>
             {/* Home */}
             <Route path="/" element={<Home />} />
@@ -50,9 +53,11 @@ function App() {
             {/* Emergency Hub Default */}
             <Route path="/emergency" element={<Helplines />} />
           </Routes>
+          </ReportSessionProvider>
         </main>
         
         <MobileNav />
+        <GlobalEmergencyLayer />
       </div>
     </BrowserRouter>
   );

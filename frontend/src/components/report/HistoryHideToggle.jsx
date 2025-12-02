@@ -69,4 +69,5 @@ const HistoryHideToggle = () => {
   );
 };
 
+export { HistoryHideToggle };
 export default HistoryHideToggle;

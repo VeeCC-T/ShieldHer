@@ -1,0 +1,4 @@
+.global-emergency-layer { position: fixed; inset: 0; pointer-events: none; z-index: 9999; }
+.panic-fab { position: fixed; right: 14px; bottom: 14px; pointer-events: auto; background: #ef3a8a; color: #fff; border: none; border-radius: 999px; padding: .6rem .9rem; font-weight: 700; box-shadow: 0 8px 24px rgba(239,58,138,0.35); cursor: pointer; }
+.panic-fab:hover { filter: brightness(1.05); }
+@media (max-width: 640px) { .panic-fab { right: 10px; bottom: 10px; } }
