@@ -3,6 +3,7 @@ import Card from '../common/Card/Card.jsx';
 import Button from '../common/Button/Button.jsx';
 import { redactLocal } from './utilsRedaction';
 import { useReportSession } from './sessionContext';
+import './ReportReviewScreen.css';
 
 const checklist = [
   'Is this accurate?',

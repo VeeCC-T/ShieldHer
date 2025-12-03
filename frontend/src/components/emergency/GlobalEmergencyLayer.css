@@ -1,4 +1,73 @@
-.global-emergency-layer { position: fixed; inset: 0; pointer-events: none; z-index: 9999; }
-.panic-fab { position: fixed; right: 14px; bottom: 14px; pointer-events: auto; background: #ef3a8a; color: #fff; border: none; border-radius: 999px; padding: .6rem .9rem; font-weight: 700; box-shadow: 0 8px 24px rgba(239,58,138,0.35); cursor: pointer; }
-.panic-fab:hover { filter: brightness(1.05); }
-@media (max-width: 640px) { .panic-fab { right: 10px; bottom: 10px; } }
+/**
+ * Global Emergency Layer Styles
+ * Provides quick exit functionality
+ */
+
+.global-emergency-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.panic-fab {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    pointer-events: auto;
+    background: var(--color-danger);
+    color: white;
+    border: 2px solid white;
+    border-radius: 9999px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    cursor: pointer;
+    transition: all 0.08s ease-out;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.panic-fab::before {
+    content: '✕';
+    font-size: 1.25rem;
+}
+
+.panic-fab:hover {
+    transform: scale(1.05);
+    background: #DC2626;
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.5);
+}
+
+.panic-fab:active {
+    transform: scale(0.95);
+}
+
+.panic-fab:focus-visible {
+    outline: 3px solid var(--color-danger);
+    outline-offset: 2px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .panic-fab {
+        right: 1rem;
+        bottom: 5.5rem;
+        /* Above the mobile nav (approx 80px) */
+        padding: 0.6rem 1.2rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .panic-fab {
+        transition: none;
+        transform: none !important;
+    }
+}

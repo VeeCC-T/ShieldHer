@@ -10,30 +10,209 @@
 }
 
 .lessons-page__header {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   text-align: center;
 }
 
 .lessons-page__title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 0.75rem 0;
+  background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .lessons-page__description {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   color: #6B7280;
   margin: 0;
+  line-height: 1.6;
 }
 
+/* Filters */
+.lessons-page__filters {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.lessons-page__search {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.lessons-page__search-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid #E5E7EB;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  transition: all 0.2s ease;
+}
+
+.lessons-page__search-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.lessons-page__search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  pointer-events: none;
+}
+
+.lessons-page__filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.lessons-page__select {
+  flex: 1;
+  min-width: 150px;
+  padding: 0.875rem 1rem;
+  border: 2px solid #E5E7EB;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lessons-page__select:hover {
+  border-color: #D1D5DB;
+}
+
+.lessons-page__select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.lessons-page__clear-filters {
+  padding: 0.875rem 1.5rem;
+  background-color: #FEF2F2;
+  color: #EF4444;
+  border: 2px solid #FCA5A5;
+  border-radius: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lessons-page__clear-filters:hover {
+  background-color: #FEE2E2;
+  border-color: #F87171;
+}
+
+/* Results Info */
+.lessons-page__results-info {
+  margin-bottom: 1.5rem;
+}
+
+.lessons-page__results-count {
+  font-size: 1rem;
+  color: #6B7280;
+  font-weight: 500;
+}
+
+/* Grid */
 .lessons-page__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
 }
 
-.lessons-page__loading,
+/* States */
+.lessons-page__loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  min-height: 400px;
+}
+
 .lessons-page__error {
   text-align: center;
-  padding: 2rem;
+  padding: 3rem 2rem;
+  background-color: #FEE2E2;
+  border: 2px solid #FCA5A5;
+  border-radius: 1rem;
+  color: #991B1B;
 }
+
+.lessons-page__empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.lessons-page__empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.lessons-page__empty h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.lessons-page__empty p {
+  font-size: 1.125rem;
+  color: #6B7280;
+  margin: 0 0 1.5rem 0;
+}
+
+.lessons-page__empty-action {
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lessons-page__empty-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .lessons-page__title {
+    font-size: 2rem;
+  }
+
+  .lessons-page__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .lessons-page__filter-group {
+    flex-direction: column;
+  }
+
+  .lessons-page__select {
+    width: 100%;
+  }
+}
+

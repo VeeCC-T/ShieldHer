@@ -10,12 +10,21 @@
 
 .app__main {
   flex: 1;
-  padding-bottom: 80px; /* Space for mobile nav */
+  padding-bottom: 0;
 }
 
-@media (min-width: 768px) {
+.app__loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 2rem;
+}
+
+/* Mobile navigation spacing */
+@media (max-width: 767px) {
   .app__main {
-    padding-bottom: 0;
+    padding-bottom: 80px; /* Space for mobile nav */
   }
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useReportSession } from './sessionContext';
+import './ClearHistoryButton.css';
 
 const ClearHistoryButton = ({ onCleared }) => {
   const { clearSession } = useReportSession();

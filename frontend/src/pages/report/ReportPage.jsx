@@ -1,10 +1,8 @@
 /**
  * ReportPage - Anonymous Reporting Module
- * Implemented by Person C
  */
 
 import React, { useState } from 'react';
-import { SafeExitButton } from '../../components/report/SafeExitButton';
 import { HistoryHideToggle } from '../../components/report/HistoryHideToggle';
 import ReportForm from '../../components/report/ReportForm';
 import PrivacyReminderCard from '../../components/report/PrivacyReminderCard';
@@ -36,7 +34,6 @@ export const ReportPage = () => {
             Report abuse safely and anonymously. We never ask for or store personal details. Double‑check your description for names, emails or numbers before submitting.
           </p>
           <div className="report-page__safety-tools">
-            <SafeExitButton />
             <HistoryHideToggle />
             <CalmModeToggle />
           </div>

@@ -1,0 +1,131 @@
+.report-review-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid #F3F4F6;
+}
+
+.report-review-card h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.75rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.report-review-card > p {
+  color: #6B7280;
+  font-size: 1rem;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+}
+
+.report-review-card__checklist {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: #F9FAFB;
+  border-radius: 0.75rem;
+  border: 2px solid #E5E7EB;
+}
+
+.report-review-card__checklist h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #374151;
+}
+
+.report-review-card__checklist ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.report-review-card__checklist li {
+  margin: 0.5rem 0;
+  color: #4B5563;
+}
+
+.report-review-card__checklist li::marker {
+  color: #EC4899;
+}
+
+.report-review-card__preview {
+  margin: 1.5rem 0;
+}
+
+.report-review-card__preview h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #374151;
+}
+
+.report-review-card__preview pre {
+  white-space: pre-wrap;
+  background: #F3F4F6;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  border: 2px solid #E5E7EB;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #374151;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.report-review-card__evidence {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: #F9FAFB;
+  border-radius: 0.75rem;
+  border: 2px solid #E5E7EB;
+}
+
+.report-review-card__evidence h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #374151;
+}
+
+.report-review-card__evidence ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #4B5563;
+}
+
+.report-review-card__evidence li {
+  margin: 0.5rem 0;
+}
+
+.report-review-card__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #E5E7EB;
+}
+
+@media (max-width: 640px) {
+  .report-review-card {
+    padding: 1.5rem;
+  }
+
+  .report-review-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .report-review-card__actions {
+    flex-direction: column-reverse;
+  }
+
+  .report-review-card__actions button {
+    width: 100%;
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../common/Card/Card.jsx';
+import './EmergencyHelpCard.css';
 
 const EmergencyHelpCard = () => (
   <Card padding="md" shadow="sm" className="emergency-help-card">

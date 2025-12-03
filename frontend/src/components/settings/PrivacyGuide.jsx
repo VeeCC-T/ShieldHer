@@ -28,27 +28,22 @@ export const PrivacyGuide = () => {
 
   return (
     <div className="privacy-guide">
-      <div className="privacy-guide__header">
-        <h3 className="privacy-guide__title">Privacy & Safety Guides</h3>
-        <p className="privacy-guide__description">
-          Comprehensive guides to help you stay safe online and protect your privacy
-        </p>
-      </div>
-
-      <div className="privacy-guide__list">
+      <div className="privacy-guide__grid">
         {guides.map((guide, index) => (
-          <div key={index} className="privacy-guide__item">
-            <h4 className="privacy-guide__item-title">{guide.title}</h4>
-            <p className="privacy-guide__item-content">{guide.content}</p>
+          <div key={index} className="privacy-guide__card">
+            <div className="privacy-guide__card-icon">📚</div>
+            <h4 className="privacy-guide__card-title">{guide.title}</h4>
+            <p className="privacy-guide__card-content">{guide.content}</p>
           </div>
         ))}
       </div>
 
-      <div className="privacy-guide__emergency">
+      {/* <div className="privacy-guide__emergency">
+        <span className="privacy-guide__emergency-icon">🆘</span>
         <p className="privacy-guide__emergency-text">
-          🆘 In immediate danger? Call 911 or the National Domestic Violence Hotline: 1-800-799-7233
+          In immediate danger? Call <strong>911</strong> or National Domestic Violence Hotline: <strong>1-800-799-7233</strong>
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };

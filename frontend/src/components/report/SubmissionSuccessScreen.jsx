@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../common/Card/Card.jsx';
 import Button from '../common/Button/Button.jsx';
+import './SubmissionSuccessScreen.css';
 
 const SubmissionSuccessScreen = ({ onNew }) => (
   <Card padding="lg" shadow="lg" className="submission-success-card">
