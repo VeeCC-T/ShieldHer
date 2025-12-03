@@ -4,7 +4,7 @@
 
 ## 🌐 Live Demo
 
-**Deployed Application:** https://shieldher-61ix.onrender.com
+**Deployed Application:** <https://shieldher-61ix.onrender.com>
 
 > Note: The application will be deployed on Render.com (free tier). Initial load may take 30-60 seconds as the service spins up.
 
@@ -13,11 +13,11 @@
 | Name | Role | Contact |
 |------|------|---------|
 | VeeCC-T | Full Stack Developer & Project Lead | [@VeeCC-T](https://github.com/VeeCC-T) |
-| Presley Oluoch | Frontend Developer, UI/UX Designer | presleyoluoch@gmail.com |
-| Oyugi Mourice | Backend Engineer, Security/Privacy Engineer | oyugimaurice22@gmail.com |
-| Geoffrey Ominde | Backend Engineer, AI/Chatbot Developer | geoffominde8@gmail.com |
-| H. Said | Frontend Developer, UX Writer | h.said@mombasawater.co.ke |
-| John Omondi | Fullstack Integrator, UI/UX, Project Lead, QA Tester | omondijohn669@gmail.com |
+| Presley Oluoch | Frontend Developer, UI/UX Designer | <presleyoluoch@gmail.com> |
+| Oyugi Mourice | Backend Engineer, Security/Privacy Engineer | <oyugimaurice22@gmail.com> |
+| Geoffrey Ominde | Backend Engineer, AI/Chatbot Developer | <geoffominde8@gmail.com> |
+| H. Said | Frontend Developer, UX Writer | <h.said@mombasawater.co.ke> |
+| John Omondi | Fullstack Integrator, UI/UX, Project Lead, QA Tester | <omondijohn669@gmail.com> |
 
 ## 📊 Project Resources
 

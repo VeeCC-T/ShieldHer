@@ -1,5 +1,6 @@
 import React from 'react';
 import { useReportSession } from './sessionContext';
+import './CalmModeToggle.css';
 
 const CalmModeToggle = () => {
   const { calmMode, setCalmMode } = useReportSession();

@@ -5,9 +5,15 @@
 .panic-exit-toggle {
   padding: 1.5rem;
   background-color: white;
-  border-radius: 0.75rem;
-  border: 2px solid #FCA5A5;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  border: 3px solid #FCA5A5;
+  box-shadow: 0 4px 12px rgba(252, 165, 165, 0.2);
+  transition: all 0.2s ease;
+}
+
+.panic-exit-toggle:hover {
+  box-shadow: 0 8px 20px rgba(252, 165, 165, 0.3);
+  transform: translateY(-2px);
 }
 
 .panic-exit-toggle__header {

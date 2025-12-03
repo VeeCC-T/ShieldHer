@@ -76,13 +76,13 @@ export const HelplineCard = ({
       <div className="helpline-card__actions">
         <Button
           variant="primary"
-          size="large"
+          size="lg"
           onClick={handleCall}
           className="helpline-card__call-button"
           aria-label={`Call ${name} at ${phoneNumber}`}
         >
           <span className="helpline-card__phone-icon" aria-hidden="true">📞</span>
-          Call {phoneNumber}
+          <span>Call {phoneNumber}</span>
         </Button>
       </div>
     </Card>

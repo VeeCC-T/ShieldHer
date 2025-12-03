@@ -1,0 +1,27 @@
+.clear-history-btn {
+  background: transparent;
+  border: none;
+  color: #EF4444;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  font-size: 0.9375rem;
+}
+
+.clear-history-btn:hover {
+  background-color: #FEE2E2;
+  color: #DC2626;
+  transform: translateY(-1px);
+}
+
+.clear-history-btn:active {
+  transform: translateY(0);
+}
+
+.clear-history-btn:focus-visible {
+  outline: 2px solid #EF4444;
+  outline-offset: 2px;
+}

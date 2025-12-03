@@ -1,0 +1,44 @@
+.calm-mode-toggle {
+  background: white;
+  border: 2px solid #E5E7EB;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  color: #374151;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+}
+
+.calm-mode-toggle:hover {
+  border-color: #8B5CF6;
+  background-color: #F5F3FF;
+  transform: translateY(-1px);
+}
+
+.calm-mode-toggle:active {
+  transform: translateY(0);
+}
+
+.calm-mode-toggle[aria-pressed="true"] {
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+  color: white;
+  border-color: #8B5CF6;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+.calm-mode-toggle[aria-pressed="true"]::before {
+  content: '🌙 ';
+}
+
+.calm-mode-toggle[aria-pressed="false"]::before {
+  content: '☀️ ';
+}
+
+.calm-mode-toggle:focus-visible {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 2px;
+}

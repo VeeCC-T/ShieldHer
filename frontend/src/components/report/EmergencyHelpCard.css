@@ -1,0 +1,55 @@
+.emergency-help-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 2px solid #FECACA;
+}
+
+.emergency-help-card__title {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #DC2626;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.emergency-help-card__title::before {
+  content: '🚨';
+  font-size: 1.5rem;
+}
+
+.emergency-help-card__intro {
+  color: #4B5563;
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
+.emergency-help-card__channels {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+  color: #4B5563;
+  line-height: 1.7;
+}
+
+.emergency-help-card__channels li {
+  margin: 0.5rem 0;
+  font-weight: 600;
+}
+
+.emergency-help-card__channels li::marker {
+  color: #EF4444;
+}
+
+.emergency-help-card__note {
+  color: #6B7280;
+  font-size: 0.9375rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #E5E7EB;
+  font-style: italic;
+  line-height: 1.6;
+}

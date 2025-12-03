@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../common/Card/Card.jsx';
+import './PrivacyReminderCard.css';
 
 const PrivacyReminderCard = () => (
   <Card padding="md" shadow="sm" className="privacy-reminder-card">

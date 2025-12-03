@@ -42,16 +42,6 @@ export const ThemeSwitch = ({ theme, onThemeChange }) => {
           <span className="theme-switch__label">Dark</span>
         </button>
       </div>
-
-      <div className="theme-switch__preview">
-        <div className={`theme-switch__preview-box theme-switch__preview-box--${theme}`}>
-          <div className="theme-switch__preview-header">Preview</div>
-          <div className="theme-switch__preview-content">
-            <div className="theme-switch__preview-text">Sample text</div>
-            <div className="theme-switch__preview-button">Button</div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

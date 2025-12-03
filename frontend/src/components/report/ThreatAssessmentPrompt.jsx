@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Card from '../common/Card/Card.jsx';
 import { useReportSession } from './sessionContext';
+import './ThreatAssessmentPrompt.css';
 
 const questions = [
   { key: 'safe_now', text: 'Are you safe right now?' },

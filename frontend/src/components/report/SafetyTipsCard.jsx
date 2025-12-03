@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '../common/Card/Card.jsx';
+import './SafetyTipsCard.css';
 
 const tips = [
   'Block or mute abusive accounts to reduce exposure.',
